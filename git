@@ -1,0 +1,20 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName('git')
+        .setDescription('gitcmd'),
+    async execute(interaction) {
+        try {
+            // Memeriksa apakah pengguna yang memanggil perintah memiliki peran admin
+            if (!interaction.member.permissions.has('ADMINISTRATOR')) {
+                // Jika pengguna tidak memiliki peran admin, balas dengan pesan bahwa hanya admin yang dapat mengakses
+                await interaction.reply('Hanya admin yang dapat mengakses perintah ini.');
+                return;
+            }
+            await interaction.reply('gitcmd'); // Membalas dengan "Pong!" saat command dipanggil
+        } catch (error) {
+            console.error('Error responding to the interaction:', error);
+        }
+    },
+};
