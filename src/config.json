@@ -1,5 +1,0 @@
-{
-  "token": "${{ secrets.TOKEN }}",
-  "clientId": "${{ secrets.CLIENTID }}",
-  "guildId": "${{ secrets.GUILDID }}"
-}
